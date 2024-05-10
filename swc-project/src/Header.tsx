@@ -3,7 +3,7 @@ import './styles/header.css'
 export default function Header() {
     return (
       <div className='header'>
-        <img src="/vite.svg" className="logo" alt="Vite logo" />
+        <img src="" className="logo" alt="Home logo" />
         <div className='nav-elmnts'>
             <ul>
                 <li className="categories">Солонгос ресторан</li>
@@ -13,10 +13,9 @@ export default function Header() {
             </ul>
         </div>
         <div>
-            <button id="btn-save">Хадгалах</button>
-            <button id="btn-login">Нэвтрэх</button>
-        </div>
-        
+            <button id="btn saved">Хадгалах</button>
+            <button id="btn login">Нэвтрэх</button>
+        </div> 
       </div>
     );
   }
