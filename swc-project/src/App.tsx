@@ -1,6 +1,6 @@
 
 import Header from './Header'
-import Menu from './Menu'
+import Menu from './components/Menu'
 import './styles/App.css'
 
 function App() {

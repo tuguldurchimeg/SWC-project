@@ -1,4 +1,4 @@
-import './styles/foodcard.css'
+import 'src/styles/foodcard.css'
 
 export default function FoodCard() {
     return (

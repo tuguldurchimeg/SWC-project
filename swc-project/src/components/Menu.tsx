@@ -1,4 +1,4 @@
-import './styles/Menu.css'
+import 'src/styles/Menu.css'
 import FoodCard from "./FoodCard"
 
 export default function Menu() {
