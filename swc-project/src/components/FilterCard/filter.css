@@ -1,0 +1,6 @@
+.fltr-elm{
+    display: flex;
+    justify-content: space-between;
+    color: var(--color-border);
+
+}

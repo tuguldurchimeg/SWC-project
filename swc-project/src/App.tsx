@@ -5,6 +5,7 @@ import Footer from './Footer'
 import './styles/App.css'
 import Home from './Home'
 import Restaurant from './Restaurant';
+import Result from './Result';
 function App() {
   return (
     <>
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route  path="/" element={<Home/>}/>
           <Route path="/Restaurant" element={<Restaurant/>}/>
+          <Route path="/Result" element={<Result/>}/>
         </Routes>
         <Footer/>
       </Router>

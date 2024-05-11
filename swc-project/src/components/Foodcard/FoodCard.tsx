@@ -27,8 +27,6 @@ export default function FoodCard() {
                 <div className="info-food sz-food">2 хүн</div>
                 <div className="info-food cal-food">1,483</div>
                 <div className="info-food prc-food" id="price">6,000₮</div>
-
-                
             </div>
         </article>
     );

@@ -1,6 +1,7 @@
  import Menu from "./components/Menu/Menu"
  import './styles/App.css'
  import './styles/Restaurant.css'
+ import Comments from "./components/Comment/Comments"
  
  export default function Restaurant(){
     return (
@@ -37,74 +38,7 @@
             <section className="main">
                     <Menu />
                     <div>
-                        <section className="comments-sec">
-                            <div className="comments">
-                                <article className="comment">
-                                    <div className="info-comm">
-                                        <div>
-                                            <h4 className="ttl-comm">Сэтгэгдэл</h4>
-                                            <span className="date-comm">05-07-2024</span>
-                                        </div>
-                                        <div className="stars">
-                                            <img src="src/assets/Star.svg" className="icon-star"></img>
-                                            <img src="src/assets/Star.svg" className="icon-star"></img>
-                                            <img src="src/assets/Star.svg" className="icon-star"></img>
-                                            <img src="src/assets/Star.svg" className="icon-star"></img>
-                                            <img src="src/assets/Star.svg" className="icon-star"></img>
-                                        </div>
-                                    </div>
-                                    <p className="desc-comm">Jade Garden Novotel-3н давхарт
-                                        Хятад хоол идмээр санагдаал найзаасаа асуутал энэ газрыг санал болголоо.
-                                        Нам гүм тохилог орчинтой
-                                        Хоол үнэхээр гоё амттай юм байна.
-                                        Мантуутай гахайн мах нь бага зэрэг аргуу санагдлаа бусдаар бол 10/10.</p>
-                                </article>
-                                <article className="comment">
-                                    <div className="info-comm">
-                                        <div>
-                                            <h4 className="ttl-comm">Сэтгэгдэл</h4>
-                                            <span className="date-comm">05-07-2024</span>
-                                        </div>
-                                        <div className="stars">
-                                            <img src="src/assets/Star.svg" className="icon-star"></img>
-                                            <img src="src/assets/Star.svg" className="icon-star"></img>
-                                            <img src="src/assets/Star.svg" className="icon-star"></img>
-                                            <img src="src/assets/Star.svg" className="icon-star"></img>
-                                            <img src="src/assets/Star.svg" className="icon-star"></img>
-                                        </div>
-                                    </div>
-                                    <p className="desc-comm">Jade Garden Novotel-3н давхарт
-                                        Хятад хоол идмээр санагдаал найзаасаа асуутал энэ газрыг санал болголоо.
-                                        Нам гүм тохилог орчинтой
-                                        Хоол үнэхээр гоё амттай юм байна.
-                                        Мантуутай гахайн мах нь бага зэрэг аргуу санагдлаа бусдаар бол 10/10.</p>
-                                </article>
-                                <article className="comment">
-                                    <div className="info-comm">
-                                        <div>
-                                            <h4 className="ttl-comm">Сэтгэгдэл</h4>
-                                            <span className="date-comm">05-07-2024</span>
-                                        </div>
-                                        <div className="stars">
-                                            <img src="src/assets/Star.svg" className="icon-star"></img>
-                                            <img src="src/assets/Star.svg" className="icon-star"></img>
-                                            <img src="src/assets/Star.svg" className="icon-star"></img>
-                                            <img src="src/assets/Star.svg" className="icon-star"></img>
-                                            <img src="src/assets/Star.svg" className="icon-star"></img>
-                                        </div>
-                                    </div>
-                                    <p className="desc-comm">Jade Garden Novotel-3н давхарт
-                                        Хятад хоол идмээр санагдаал найзаасаа асуутал энэ газрыг санал болголоо.
-                                        Нам гүм тохилог орчинтой
-                                        Хоол үнэхээр гоё амттай юм байна.
-                                        Мантуутай гахайн мах нь бага зэрэг аргуу санагдлаа бусдаар бол 10/10.</p>
-                                </article>
-                            </div>
-                            <div className="comment-footer">
-                                <span className="total-comm">Нийт Сэтгэгдэл - 6</span>
-                                <button id="add-comm"><i className="fa-solid fa-pen"></i></button>
-                            </div>
-                        </section>
+                        <Comments />
                         <section className="contact-sec">
                             <div>
                                 <a href="#" id="website">jadegarden.mn</a>

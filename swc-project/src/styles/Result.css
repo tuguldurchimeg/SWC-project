@@ -1,0 +1,28 @@
+
+
+.rslt-main-container{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 3em;
+}
+
+/* ---- Restaurant card container style ---- */
+.rest-cards > div{
+    height: inherit;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    justify-content: center;
+    margin-top: 2rem;
+    overflow: scroll;
+  }
+  .rest-cards > div::-webkit-scrollbar{
+    display: none;
+  }
+  .ttl-result{
+    color: var(--color-text);
+    margin-bottom: 0;
+  }
+  .total-result{
+    color: var(--color-border);
+  }

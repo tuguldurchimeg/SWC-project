@@ -1,0 +1,33 @@
+.comment{
+    width: 20rem;
+}
+.total-comm{
+    color: var(--color-border);
+    font-size: 1rem;
+}
+#add-comm{
+    color: var(--color-primary);
+}
+.info-comm{
+    display: flex;
+    column-gap: 1rem;   
+}
+.ttl-comm{
+    margin: 0;
+    font-size: 18px;
+    font-style: italic;
+}
+.date-comm{
+    color: var(--color-border);
+    font-size: 13px;
+}
+.desc-comm{
+    background-color: var(--color-light-grey-background);
+    border-radius: 20px;
+    padding: 1rem;
+    font-size: 14px;
+    width: inherit;
+}
+.stars{
+    margin-top: 0.3rem;
+}

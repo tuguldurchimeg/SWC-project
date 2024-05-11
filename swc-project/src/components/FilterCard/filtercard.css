@@ -1,0 +1,26 @@
+
+.card-fltr{
+    width: 20em;
+    height: fit-content;
+    border-radius: 20px;
+    background-color: var(background-color);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--large-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+}
+.fltrs{
+    width: 80%;
+}
+.ttl::before{
+    content: url('src/assets/Filter.svg');
+    margin-right: 0.5em;
+}
+.ttl{
+    margin: 0;
+    display: flex;
+    align-items: center;
+    margin-top: 1em;
+}

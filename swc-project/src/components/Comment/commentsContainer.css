@@ -1,0 +1,27 @@
+/* ---------- COMMENTS ------- */
+.comments-sec{
+    margin: 1em 0 3em 0;
+}
+.comments::-webkit-scrollbar{
+    display: none;
+}
+.comments{
+    display: flex;
+    gap: 4rem;
+    overflow: scroll;
+    height: inherit;
+}
+.comment-footer{
+    display: flex;
+    justify-content: space-between;
+    & button{
+        background-color: var(--color-background);
+        border: 1px solid var(--color-border);
+        border-radius: 20px;
+        width: 3rem;
+        transition: 2s ease-out;
+        &:hover{
+            transform: scale(1.1em);
+        }
+    }
+}
