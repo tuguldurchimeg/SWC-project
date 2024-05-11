@@ -100,10 +100,10 @@
                                         Мантуутай гахайн мах нь бага зэрэг аргуу санагдлаа бусдаар бол 10/10.</p>
                                 </article>
                             </div>
-                            <footer className="comment-footer">
+                            <div className="comment-footer">
                                 <span className="total-comm">Нийт Сэтгэгдэл - 6</span>
                                 <button id="add-comm"><i className="fa-solid fa-pen"></i></button>
-                            </footer>
+                            </div>
                         </section>
                         <section className="contact-sec">
                             <div>

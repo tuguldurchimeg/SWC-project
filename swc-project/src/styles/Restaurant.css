@@ -7,6 +7,8 @@
     margin: 0 2em 0 2em;
     padding: 3em 0 3em 0;
     font-size: 1rem;
+    position: relative;
+    z-index: 0;
 }
 
 /* IMAGES */
@@ -38,7 +40,7 @@
     position: absolute;
     z-index: -1;
     object-fit: cover;
-    width: 100%;
+    width: 99vw;
     height: 36em;
     filter: blur(8px);
   }
@@ -70,19 +72,26 @@
     padding-left: 1em;
     border-left: 3px solid var(--color-border);
   }
-  /* ----- infos-sec Additional ------- */
+  /* ----- infos-sec Additional infos ------- */
 .infos-sec{
     width: auto;
     height: auto;
     border-radius: 30px;
     box-shadow: var(--large-shadow);
     background-color: var(--color-background);
+    padding: 0.2em;
+    position: relative;
+    z-index: 1;
+    top: -0.7em;
 }
 .infos-sec ul{
     padding: 1em 3em;
     margin: 0;
     display: flex;
     justify-content: space-around;
+    column-gap: 2.5em;
+    row-gap: 1em;
+    flex-wrap: wrap;
 }
 .info-ad{
     font-size: 1.2em;
@@ -92,31 +101,31 @@
 #info1::before{
     margin-right: 0.7rem;
     margin-top: 1rem;
-    content: url("assets/Hanger.svg");
+    content: url("src/assets/Hanger.svg");
 }
 #info2::before{
     margin-right: 0.7rem;
-    content: url("assets/Wifi.svg");
+    content: url("src/assets/Wifi.svg");
 }
 #info3::before{
     margin-right: 0.7rem;
-    content: url("assets/Vip.svg");
+    content: url("src/assets/Vip.svg");
 }
 #info4::before{
     margin-right: 0.7rem;
-    content: url("assets/Car.svg");
+    content: url("src/assets/Car.svg");
 }
 #info5::before{
     margin-right: 0.7rem;
-    content: url("assets/Sound-off.svg");
+    content: url("src/assets/Sound-off.svg");
 }
 
 /* ------ MAIN --------- */
 .main{
-    margin: 3rem 5rem;
+    margin: 3em 5em;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-    gap: 2rem 3rem;
+    gap: 2em 3em;
 }
 .menu{
     margin: 1rem 2rem;
@@ -124,7 +133,6 @@
 
 /* ---------- COMMENTS ------- */
 .comments-sec{
-    box-shadow: var(--medium-shadow);
     margin: 1em 0 3em 0;
 }
 .comments::-webkit-scrollbar{
@@ -144,8 +152,9 @@
         border: 1px solid var(--color-border);
         border-radius: 20px;
         width: 3rem;
+        transition: 2s ease-out;
         &:hover{
-            border: 2px solid var(--color-border);
+            transform: scale(1.1em);
         }
     }
 }
@@ -206,13 +215,13 @@
     row-gap: 1.5rem;
 }
 #website::after{
-    content: url("assets/Link.svg");
+    content: url("src/assets/Link.svg");
 }
 #phone-rest::after{
-    content: url("assets/Phone.svg");
+    content: url("src/assets/Phone.svg");
 }
 #address-rest::after{
-    content: url("assets/Direction.svg");
+    content: url("src/assets/Direction.svg");
 }
 
 .footer{
@@ -267,9 +276,9 @@
 }
 
 /* -------- MOBILE --------- */
-@media (max-width: 400px){
+@media (max-width: 600px){
     .imgs-res{
-        font-size: 0.58rem;
+        font-size: 0.6rem;
     }
     .main{
         margin: 1rem;
