@@ -2,20 +2,20 @@ import './styles/header.css'
 
 export default function Header() {
     return (
-      <div className='header'>
-        <img src="" className="logo" alt="Home logo" />
-        <div className='nav-elmnts'>
-            <ul>
-                <li className="categories">Солонгос ресторан</li>
-                <li className="categories">Ресторан</li>
-                <li className="categories">Хятад ресторан</li>
-                <li className="categories">Түргэн хоол</li>
-            </ul>
-        </div>
-        <div>
-            <button id="btn saved">Хадгалах</button>
-            <button id="btn login">Нэвтрэх</button>
-        </div> 
-      </div>
+        <header>
+              <nav className="navigationBar">
+                <a href="#" ><img src="" alt=""/></a>
+                <ul className="listStyle">
+                  <li><a href="#">Ресторан</a></li>
+                  <li><a href="#">Цайны газар</a></li>
+                  <li><a href="#">Түргэн хоол</a></li>
+                  <li><a href="#">Буфет</a></li>
+                </ul>
+                <div className="navButtons">
+                  <button>Хадгалсан</button>
+                  <button>Нэвтрэх</button>
+                </div>
+              </nav>
+          </header>
     );
   }

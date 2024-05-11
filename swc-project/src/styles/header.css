@@ -1,31 +1,55 @@
-.header{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 1.5rem;
-    box-shadow: var(--medium-shadow);
+.navigationBar{
+	display:flex;
+	flex-direction:row;
+	justify-content:space-between;
+	align-items:center;
+	margin:0 0 20px 0 ;
+	font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size:20px;
+    padding:20px 40px 20px 40px;
 }
-.nav-elmnts{
-    display: flex;
-    gap: 1.5em;
-    &>a{
-        color: var(--color-border);
-        &:hover{
-            color: var(--color-text);
-        }
-    }
+header{
+	box-shadow:var(--xxssmall);
 }
-.btn{
-    width: 8em;
-    height: 3em;
-    background: var(--color-primary);
-    color: var(--color-background);
-    font-weight: 500;
-    border-radius: 20px;
-    border: none;
+.navigationBar ul{
+	list-style:none;
+	display:flex;
+	flex-direction:row;
+	
 }
-.saved{
-    background-color: var(--color-background);
-    border: 1px solid var(--color-border);
-    color: var(--color-text);
+.navigationBar ul li{
+	margin:0 10px 0 10px;
+}
+.navigationBar ul li a{
+	color:var(--color-border);
+}
+.navigationButtons{
+	display:grid;
+	grid-template-column:1 fr 1fr;
+	grid-gap:10px;
+}
+.navigationBar button{
+	font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size:15px;
+    margin:10px;
+}
+.navigationBar button:nth-child(1){
+	background-color:var(--color-background);
+}
+.navigationBar button:nth-child(2){
+	background-color:var(--color-primary);
+	color:var(--color-background);
+}
+
+.navigationBar button{
+	outline:none;
+	border:none;
+	cursor:pointer;
+	border-radius:15px;
+	padding:10px 30px 10px 30px;
+	border:1px  var(--color-border) solid;	
 }
