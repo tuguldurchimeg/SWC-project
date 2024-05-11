@@ -1,6 +1,6 @@
 #root {
   background-color: var(--color-background);
-  max-width: 1280px;
+
 }
 /* --- MENU Title --- */
 .ttl-menu{
@@ -36,6 +36,4 @@
     animation: logo-spin infinite 20s linear;
   }
 }
-.parent{
-  width:100vw;
-}
+
