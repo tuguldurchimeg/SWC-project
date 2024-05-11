@@ -1,5 +1,5 @@
-import 'src/styles/Menu.css'
-import FoodCard from "./FoodCard"
+import FoodCard from "../Foodcard/FoodCard"
+import './Menu.css'
 
 export default function Menu() {
     return (

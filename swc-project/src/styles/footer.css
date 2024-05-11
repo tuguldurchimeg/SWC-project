@@ -1,0 +1,8 @@
+.footer{
+    display: flex;
+    justify-content: space-evenly;
+    border-top: 0.2px solid var(--color-border);
+}
+.footer li, a, .info-footer{
+    color: var(--color-border);
+}
