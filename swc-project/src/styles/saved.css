@@ -1,0 +1,6 @@
+.saved-items{
+    margin: 3em 7em;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    gap: 2em;
+}

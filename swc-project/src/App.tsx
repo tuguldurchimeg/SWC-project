@@ -6,6 +6,7 @@ import './styles/App.css'
 import Home from './Home'
 import Restaurant from './Restaurant';
 import Result from './Result';
+import Saved from './Saved';
 function App() {
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
           <Route  path="/" element={<Home/>}/>
           <Route path="/Restaurant" element={<Restaurant/>}/>
           <Route path="/Result" element={<Result/>}/>
+          <Route path="/Saved" element={<Saved/>}/>
         </Routes>
         <Footer/>
       </Router>

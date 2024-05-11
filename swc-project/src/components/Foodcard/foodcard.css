@@ -26,6 +26,8 @@
     align-items: center;
     justify-content: center;
     gap: 0.2rem;
+    padding: 0.1rem;
+    font-weight: 550;
     position: absolute;
     top: 0.3rem;
     right: 0.2rem;
