@@ -8,6 +8,9 @@ import Restaurant from './Restaurant';
 function App() {
   return (
     <>
+    <div className="parent">
+
+   
       <Router>
         <Header />
         <Routes>
@@ -16,7 +19,7 @@ function App() {
         </Routes>
         <Footer/>
       </Router>
-
+      </div>
     </>
     
       

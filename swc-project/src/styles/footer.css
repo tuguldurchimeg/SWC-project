@@ -1,7 +1,8 @@
 footer{
     display: flex;
     justify-content: space-evenly;
-    border-top: 0.2px solid var(--color-border);
+    box-shadow:var(--default);
+
 }
 footer li, a, .info-footer{
     font-family:var(--font-family-1);
