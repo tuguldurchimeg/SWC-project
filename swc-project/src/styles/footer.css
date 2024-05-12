@@ -2,6 +2,7 @@ footer{
     display: flex;
     justify-content: space-evenly;
     box-shadow:var(--default);
+    padding: 40px 0 40px 0;
 
 }
 footer li, a, .info-footer{

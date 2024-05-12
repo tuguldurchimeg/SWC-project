@@ -1,0 +1,24 @@
+[
+    {
+      "name": "Restaurant 1",
+      "rating": 4.5,
+      "typeOfPlace": "Italian Restaurant",
+      "workHours": "Mon-Sun: 12:00 PM - 10:00 PM",
+      "address": "123 Main Street"
+    },
+    {
+      "name": "Restaurant 2",
+      "rating": 4.0,
+      "typeOfPlace": "French Restaurant",
+      "workHours": "Tue-Sun: 11:00 AM - 9:00 PM",
+      "address": "456 Elm Street"
+    },
+    {
+      "name": "Restaurant 3",
+      "rating": 4.2,
+      "typeOfPlace": "Mexican Restaurant",
+      "workHours": "Mon-Sat: 11:30 AM - 11:00 PM",
+      "address": "789 Oak Avenue"
+    }
+  ]
+  

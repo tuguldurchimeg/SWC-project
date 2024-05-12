@@ -1,8 +1,9 @@
 import './styles/footer.css'
+import logo from './assets/tastyFoodLogo.svg'
 function Footer(){
     return(
         <footer className="footer">
-			<img src="" alt="logo"/>
+			<img src={logo} alt="logo" style={{width:'250px'}}/>
 			<div className="contact-us">
 				<h4 className="info-footer">Бидэнтэй холбогдох</h4>
 				<ul>
