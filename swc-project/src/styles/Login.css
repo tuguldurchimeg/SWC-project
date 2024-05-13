@@ -1,0 +1,71 @@
+.LoginInterface{
+
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    row-gap:20px;
+    
+  
+}
+.LoginInterface img{
+    margin:30px;
+    padding-top:40px;
+}
+.LoginForm{
+    display:flex;
+    flex-direction:column;
+    align-items: stretch;
+    width:350px;
+    background-color:var(--color-background);
+    padding:20px 80px 20px 80px;
+    border:none;
+    border-radius:15px;
+}
+.LoginOption{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    border-bottom:2px solid var(--color-border);
+    margin-bottom:40px;
+    
+}
+.LoginOption button{
+    border:none;
+    font-size:20px;
+    background-color:transparent;
+    padding:15px;
+    
+}
+
+.LoginInterface form{
+    display:grid;
+    grid-template-rows:1fr 1fr;
+}
+.Forms{
+    margin-bottom:40px;
+}
+input{
+    border-bottom:2px solid var(--color-border);
+}
+.Forms .Forms-second{
+    display:none;
+}
+.LoginInterface form input{
+    border:none;
+    font-size:16px;
+    margin:10px;
+};
+
+.logButton, .regButton {
+    border: none;
+    font-size: 20px;
+    background-color: var(--color-background); /* Set background color */
+    color: white; /* Set text color */
+    padding: 15px;
+    border-radius: 5px; /* Add border radius for rounded corners */
+    cursor: pointer; /* Change cursor on hover */
+}
+
+.logButton:hover, .regButton:hover {
+    background-color: var(--color-hover); /* Change background color on hover */
+}

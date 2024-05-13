@@ -35,6 +35,7 @@ function Home(){
                         rating={item.rating}
                     />
                 ))}
+                <FoodPlace/>
             </div>
         </main>
     );

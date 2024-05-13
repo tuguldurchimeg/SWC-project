@@ -17,8 +17,6 @@ main{
     margin:40px 10% 40px 10%;
 }
 .restaurant{
-	width:15vw;
-	height:45vh;
 	box-shadow:var(--default);
 	border-radius:15px;
 }
@@ -32,12 +30,19 @@ main{
 	position:relative;
 	font-size:20px;
 }
-.restaurant .likeIcon i{
+.restaurant .likeIcon button{
 	position:absolute;
 	right:10px;
 	top:10px;
 	z-index:2;
 	color:var(--color-background);
+	background:none;
+	border:none;
+}
+.restaurant .likeIcon button:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease; 
+	color:var(--color-primary);
 }
 .restaurant .generalInfo{
 	display:flex;

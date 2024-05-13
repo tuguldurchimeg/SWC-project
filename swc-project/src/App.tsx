@@ -7,16 +7,18 @@ import Home from './Home'
 import Restaurant from './Restaurant';
 import Result from './Result';
 import Saved from './Saved';
+import Login from './Login';
 function App() {
   return (
     <>
       <Router>
-        <Header />
+        <Header/>
         <Routes>
           <Route  path="/" element={<Home/>}/>
           <Route path="/Restaurant" element={<Restaurant/>}/>
           <Route path="/Result" element={<Result/>}/>
           <Route path="/Saved" element={<Saved/>}/>
+          <Route path="/Login" element={<Login/>}/>
         </Routes>
         <Footer/>
       </Router>

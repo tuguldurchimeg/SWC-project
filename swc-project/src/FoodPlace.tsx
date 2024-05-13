@@ -8,11 +8,14 @@ interface FoodPlaceProps {
     address: string;
     rating: number;
 }
-function FoodPlace(props:FoodPlaceProps){
 
+function FoodPlace(props:FoodPlaceProps){
+    const getData=()=>{
+        
+    }
     return(
         <div className="restaurant">
-					<div className="likeIcon"><i className="fa-solid fa-heart"/></div>
+					<div className="likeIcon"><button className="fa-solid fa-heart" onClick={getData}/></div>
 					<img src={foodplace} alt="Burger King"/>
 					<article className="generalInfo">
 						<div>
@@ -26,5 +29,12 @@ function FoodPlace(props:FoodPlaceProps){
 					
 		</div>
     )
+}
+FoodPlace.defaultProps={
+    name: "Restaurant",
+    typeOfPlace: "...",
+    workHours:"...",
+    address:"...",
+    rating:0
 }
 export default FoodPlace 
