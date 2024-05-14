@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import FoodPlace from "./FoodPlace"
-import "./styles/foodplace.css"
+import "./styles/home.css"
 import Footer from "./Footer"
 import Header from "./Header"
 
@@ -27,6 +27,12 @@ function Home(){
         <>
             <Header/>
             <main>
+            <ul className="listStyle">
+                  <li><div className="type">Ресторан</div></li>
+                  <li><div className="type">Цайны газар</div></li>
+                  <li><div className="type">Түргэн хоол</div></li>
+                  <li><div className="type">Буфет</div></li>
+            </ul>
             <h1>Санал болгох</h1>
             <div className="restaurants">
                 {data.map((item, index) => (
@@ -40,6 +46,11 @@ function Home(){
                     />
                 ))}
                 <FoodPlace/>
+                <FoodPlace/>
+                <FoodPlace/>
+                <FoodPlace/>
+                <FoodPlace/>
+
             </div>
             </main>
             <Footer/>

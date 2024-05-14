@@ -1,19 +1,21 @@
 import './styles/header.css'
 import logo from './assets/tastyFoodLogo.svg'
+import { Link } from 'react-router-dom';
 export default function Header() {
     return (
         <header>
               <nav className="navigationBar">
-                <a href="#" ><img src={logo} alt="" style={{width:'150px'}}/></a>
-                <ul className="listStyle">
-                  <li><a href="#">Ресторан</a></li>
-                  <li><a href="#">Цайны газар</a></li>
-                  <li><a href="#">Түргэн хоол</a></li>
-                  <li><a href="#">Буфет</a></li>
-                </ul>
+                <Link to="/">
+                  <a href="#" ><img src={logo} alt="" style={{width:'150px'}}/></a>
+                </Link>
+                
                 <div className="navButtons">
-                  <button>Хадгалсан</button>
-                  <button>Нэвтрэх</button>
+                  <Link to="/Saved">
+                    <button>Хадгалсан</button>
+                  </Link>
+                  <Link to="/Login">
+                    <button>Нэвтрэх</button>
+                  </Link>
                 </div>
               </nav>
           </header>
