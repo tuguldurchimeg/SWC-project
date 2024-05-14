@@ -2,10 +2,14 @@
  import './styles/App.css'
  import './styles/Restaurant.css'
  import Comments from "./components/Comment/Comments"
- 
+ import Footer from "./Footer"
+import Header from "./Header"
+
  export default function Restaurant(){
     return (
-        <main className="main-container">
+        <>
+            <Header/>
+                <main className="main-container">
             <section className="intro">
                 <img src="https://source.unsplash.com/random/?restaurant&1" alt="restaurant img" className="img-back"/>
                 <div className="imgs-res">
@@ -49,5 +53,7 @@
                     </div>         
             </section>       
         </main>
+        <Footer/>
+        </>
     )
  }
