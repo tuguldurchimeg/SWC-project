@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import FoodPlace from "./FoodPlace"
 import "./styles/foodplace.css"
+import Footer from "./Footer"
+import Header from "./Header"
 
 function Home(){
     const [data, setData] = useState<any[]>([]);
@@ -22,7 +24,9 @@ function Home(){
         fetchData();
     }, []);
     return (
-        <main>
+        <>
+            <Header/>
+            <main>
             <h1>Санал болгох</h1>
             <div className="restaurants">
                 {data.map((item, index) => (
@@ -37,7 +41,11 @@ function Home(){
                 ))}
                 <FoodPlace/>
             </div>
-        </main>
+            </main>
+            <Footer/>
+
+        </>
+        
     );
 }
 export default Home

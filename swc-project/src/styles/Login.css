@@ -54,18 +54,38 @@ input{
     border:none;
     font-size:16px;
     margin:10px;
-};
-
-.logButton, .regButton {
+}
+.buttons{
+    display:flex;
+    flex-direction:column;
+    row-gap:20px;
+}
+.logButton{
     border: none;
     font-size: 20px;
-    background-color: var(--color-background); /* Set background color */
+    background-color: var(--color-primary); /* Set background color */
     color: white; /* Set text color */
     padding: 15px;
-    border-radius: 5px; /* Add border radius for rounded corners */
+    border-radius: 10px; /* Add border radius for rounded corners */
     cursor: pointer; /* Change cursor on hover */
 }
+.regButton{
+    color:var(--color-primary);
+    background:none;
+    border:none;
+    font-size:15px;
+    padding:15px;
+    &:hover{
+        text-decoration: underline;
+    }
+}
 
-.logButton:hover, .regButton:hover {
-    background-color: var(--color-hover); /* Change background color on hover */
+.log{
+    display: none;
+}
+.logLabel{
+    color: var(--color-border);
+}
+.logLabel:has(input:checked){
+    color: var(--color-primary);  
 }
