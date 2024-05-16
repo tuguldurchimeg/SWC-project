@@ -56,19 +56,17 @@ app.get("/places", async (req, res) => {
 });
 
 // get a place
-app.get("/places/:p_name", async (req, res) => {
+app.get("/places/:id", async (req, res) => {
   try {
-    const { p_name } = req.params;
-    const place = await pool.query("SELECT * FROM places WHERE p_name = $1", [
-      p_name,
-    ]);
+    const { id } = req.params;
+    const place = await pool.query("SELECT * FROM places WHERE id = $1", [id]);
     res.json(place.rows[0]);
   } catch (err) {
     console.error(err.message);
   }
 });
 
-// update a place
+// update a place name
 app.put("/places/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -77,7 +75,21 @@ app.put("/places/:id", async (req, res) => {
       "UPDATE places SET p_name = $1 WHERE id = $2",
       [p_name, id]
     );
-    res.json("place was updated");
+    res.json("place name was updated");
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+// update an openhours
+app.put("/places/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { openhours } = req.body;
+    const updateHours = await pool.query(
+      "UPDATE places SET openhours = $1 WHERE id = $2",
+      [openhours, id]
+    );
+    res.json("openhours was updated");
   } catch (err) {
     console.error(err.message);
   }

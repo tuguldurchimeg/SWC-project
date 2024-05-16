@@ -23,7 +23,10 @@ create table foods(
 );
 create table users(
     user_id varchar(10) primary key,
-    password varchar(10)
+    password varchar(10),
+    username varchar(30) unique,
+    phone varchar(10),
+    address varchar(30)
 );
 
 create table comments(
