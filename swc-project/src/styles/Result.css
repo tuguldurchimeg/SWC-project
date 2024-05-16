@@ -1,9 +1,12 @@
 
-
 .rslt-main-container{
     display: flex;
-    justify-content: space-evenly;
-    margin: 3em;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 2em 3em;
+    gap: 2em;
 }
 
 /* ---- Restaurant card container style ---- */
@@ -13,7 +16,7 @@
     gap: 1rem;
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
     overflow: scroll;
   }
   .rest-cards > div::-webkit-scrollbar{
@@ -25,4 +28,33 @@
   }
   .total-result{
     color: var(--color-border);
+  }
+
+  .fltr-bar{
+    height: 2rem;
+    width: 60em;
+    background: var(--color-light-grey-background);
+    color: var(--color-border);
+    /* justify-content: center; */
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    display: none;
+  }
+  .fltr-bar label{
+    font-size: 1.2em;
+    margin-left: 3rem;
+    &::before{
+      content: url("src/assets/Filter.svg");
+      margin-right: 0.5rem;
+    }
+  }
+
+  @media(max-width: 1407px){
+    .card-fltr{
+      display: none;
+    }
+    .fltr-bar{
+      display: flex;
+    };
   }

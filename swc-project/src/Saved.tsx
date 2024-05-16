@@ -8,8 +8,7 @@ export default function Saved(){
     return(
         <>
             <Header/>
-            <main>
-                <div>
+            <main className="saved-container">
                     <ToggleSwitch />
                     <section className='saved-items'>
                         <FoodCard />
@@ -21,7 +20,6 @@ export default function Saved(){
                         <FoodCard />
 
                     </section>
-                </div>
             </main>
             <Footer />
         </>

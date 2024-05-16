@@ -6,7 +6,7 @@ export default function Header() {
         <header>
               <nav className="navigationBar">
                 <Link to="/">
-                  <a href="#" ><img src={logo} alt="" style={{width:'150px'}}/></a>
+                  <img src={logo} alt="" style={{width:'100px'}}/>
                 </Link>
                 
                 <div className="navButtons">

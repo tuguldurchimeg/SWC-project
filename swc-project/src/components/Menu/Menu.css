@@ -1,5 +1,8 @@
 
 /* ---- Food card container style ---- */
+.menu{
+  margin: 1em 2em;
+}
 .foods {
     height: inherit;
     display: grid;
