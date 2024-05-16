@@ -5,7 +5,7 @@ export default function Comment(){
         <article className="comment">
             <div className="info-comm">
                 <div>
-                    <h4 className="ttl-comm">Сэтгэгдэл</h4>
+                    <h4 className="ttl-user">Хэрэглэгч</h4>
                     <span className="date-comm">05-07-2024</span>
                 </div>
                 <div className="stars">

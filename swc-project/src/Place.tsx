@@ -1,11 +1,11 @@
  import Menu from "./components/Menu/Menu"
  import './styles/App.css'
- import './styles/Restaurant.css'
+ import './styles/Place.css'
  import Comments from "./components/Comment/Comments"
  import Footer from "./Footer"
 import Header from "./Header"
 
- export default function Restaurant(){
+ export default function Place(){
     return (
         <>
             <Header/>
@@ -24,10 +24,14 @@ import Header from "./Header"
                             <h3 className="info-res-ttl">Jade Garden</h3>
                             <i className="fa-regular fa-heart"></i>
                         </div>
-                        
                         <div className="info-res">Chinese Restaurant</div>
                         <div className="info-res">10:00 - 18:00</div>
-                        <div className="info-res capacity">Багтаамж - 120</div>       
+                        <div className="info-res capacity">Багтаамж - 120</div>
+
+                        <div className="totalRate">
+                            <i className="fa-solid fa-star"></i>
+                            <span>4.3</span>
+                        </div>       
                     </div>
                 </section>
                 <section className="infos-sec">

@@ -5,7 +5,7 @@ export default function Menu() {
     return (
         <section className="menu">
             <div className="ttl-menu">
-                <h3 className="ttl">MENU</h3>
+                <h2>MENU</h2>
                 <button className="btn-all-menu">Бүгдийг харах</button>
             </div>
             <div className='foods'>

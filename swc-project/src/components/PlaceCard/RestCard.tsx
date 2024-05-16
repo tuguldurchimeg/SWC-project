@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
 import './restCard.css'
-import Restaurant from '../../Restaurant'
+import Place from '../../Place'
 
 export default function RestCard(){
     return(
-        <Link to="/Restaurant">
+        <Link to="/Place">
             <article className="restaurant-card">
                 <div className="img-rest">
                     <img

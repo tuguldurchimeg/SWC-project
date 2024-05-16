@@ -1,5 +1,6 @@
-import RestCard from "./components/RestaurantCard/RestCard"
-import FilterCard from "./components/FilterCard/FilterCard"
+import RestCard from "./components/PlaceCard/RestCard"
+import FilterCard from "./components/Filter/FilterCard"
+import FilterBar from "./components/Filter/FilterBar"
 import './styles/Result.css'
 import Header from "./Header"
 import Footer from "./Footer"
@@ -10,9 +11,7 @@ export default function Result(){
             <Header/>
             <main className="rslt-main-container">
                 <FilterCard />
-                <div className="fltr-bar">
-                    <label>Filter</label>
-                </div>
+                <FilterBar />
                 <section className="rest-cards">
                     <h2 className="ttl-result">Хан-Уул Дүүрэг Дэх Солонгос Хоолны Газрууд</h2>
                     <span className="total-result">Хайлтын илэрц - 13</span>

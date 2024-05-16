@@ -1,0 +1,41 @@
+.fltr-bar{
+    height: 2rem;
+    width: 60em;
+    background: var(--color-light-grey-background);
+    /* justify-content: center; */
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    display: none;
+    box-shadow: var(--medium-shadow);
+  }
+  .fltr-bar button{
+    font-size: 1.2em;
+    margin-left: 3rem;
+    background: none;
+    border: none;
+    color: var(--color-border);
+    &::before{
+      content: url("src/assets/Filter.svg");
+      margin-right: 0.5rem;
+    }
+  }
+  .dialog {
+    max-width: 30rem;
+    height: auto;
+    padding: 2rem;
+    border: 0;
+    border-radius: 0.5rem;
+    box-shadow: var(--large-shadow);
+    position: relative;
+  }
+
+  .dialog::backdrop {
+    background: hsl(0 0% 0% / 50%);
+  }
+  .dialog-close-btn {
+    font-size: .75em;
+    position: absolute;
+    top: .25em;
+    right: .25em;
+  }

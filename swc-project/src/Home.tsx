@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
-import FoodPlace from "./FoodPlace"
+import FoodPlace from "./components/PlaceCard/FoodPlace"
+import background from './assets/backgroundoflogin.svg'
 import "./styles/home.css"
 import Footer from "./Footer"
 import Header from "./Header"
@@ -27,13 +28,42 @@ function Home(){
         <>
             <Header/>
             <main>
+            <nav className='home'>
+                <h1></h1>
+                <ul className="search-bar">
+                    <li>
+                        <select className="fltr-dist">
+                            <option>Дүүрэг</option>
+                            <option>Дүүрэг</option>
+                            <option>Дүүрэг</option>
+                            <option>Дүүрэг</option>
+                            <option>Дүүрэг</option>
+                            <option>Дүүрэг</option>
+                        </select>
+                    </li>
+                    <li >
+                        <select className="fltr-type">
+                            <option>Төрөл</option>
+                            <option>Төрөл</option>
+                            <option>Төрөл</option>
+                            <option>Төрөл</option>
+                            <option>Төрөл</option>
+                        </select>
+                    </li>
+                    <li className="search-button-background" id="search">
+                        <button className="search-btn">
+                            <i className="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
             <ul className="listStyle">
-                  <li><div className="type">Ресторан</div></li>
-                  <li><div className="type">Цайны газар</div></li>
-                  <li><div className="type">Түргэн хоол</div></li>
-                  <li><div className="type">Буфет</div></li>
+                  <li><div className="fltr-byTp" id="restaurant">Ресторан</div></li>
+                  <li><div className="fltr-byTp">Цайны газар</div></li>
+                  <li><div className="fltr-byTp">Түргэн хоол</div></li>
+                  <li><div className="fltr-byTp">Буфет</div></li>
             </ul>
-            <h1>Санал болгох</h1>
+            <h1 className='ttl-rec'>Санал болгох</h1>
             <div className="restaurants">
                 {data.map((item, index) => (
                     <FoodPlace 
@@ -50,7 +80,6 @@ function Home(){
                 <FoodPlace/>
                 <FoodPlace/>
                 <FoodPlace/>
-
             </div>
             </main>
             <Footer/>

@@ -12,9 +12,9 @@
     display: flex;
     column-gap: 1rem;   
 }
-.ttl-comm{
+.ttl-user{
     margin: 0;
-    font-size: 18px;
+    font-size: 1rem;
     font-style: italic;
 }
 .date-comm{

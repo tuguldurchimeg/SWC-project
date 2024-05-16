@@ -30,26 +30,6 @@
     color: var(--color-border);
   }
 
-  .fltr-bar{
-    height: 2rem;
-    width: 60em;
-    background: var(--color-light-grey-background);
-    color: var(--color-border);
-    /* justify-content: center; */
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    display: none;
-  }
-  .fltr-bar label{
-    font-size: 1.2em;
-    margin-left: 3rem;
-    &::before{
-      content: url("src/assets/Filter.svg");
-      margin-right: 0.5rem;
-    }
-  }
-
   @media(max-width: 1407px){
     .card-fltr{
       display: none;
