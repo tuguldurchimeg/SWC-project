@@ -80,28 +80,31 @@ app.get("/users", (req, res) => {
     }
   });
 });
-app.post("/users",(req,res)=>{ 
-  const { user_id, password, username, phone, address } = req.body;
-  pool.query("INSERT INTO users(user_id,password,username,phone,address) values($1,$2,$3,$4,$5)",[user_id,password,username,phone,address], (err,result)=>{
-    if(!err)
-      res.send(result);
-    else 
-    console.log(err.message);
-  })
-})
-app.get("/allusers", (req, res) => {
-  pool.query("SELECT * FROM users", (err, result) => {
+
+app.get('/allusers', (req, res) => {
+  pool.query('SELECT * FROM users', (err, result) => {
     if (!err) {
-      if (result.rows.length > 0) {
-        res.send(result.rows);
-      } else {
-        res.status(404).send('User not found');
-      }
+      res.send(result.rows);
     } else {
       console.log(err.message);
       res.status(500).send('Internal Server Error');
     }
   });
+});
+
+app.post('/users', (req, res) => {
+  const { user_id, password, username, phone, address } = req.body;
+  pool.query(
+    'INSERT INTO users(user_id,password,username,phone,address) values($1,$2,$3,$4,$5)',
+    [user_id, password, username, phone, address],
+    (err, result) => {
+      if (!err) {
+        res.status(201).send(result.rows);
+      } else {
+        res.status(500).send(err.message);
+      }
+    }
+  );
 });
 
 // getting the password to check if the input password is matching

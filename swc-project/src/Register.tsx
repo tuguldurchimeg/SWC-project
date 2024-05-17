@@ -20,6 +20,7 @@ const  Register :React.FC= () =>{
     const [message,setMessage]=useState('');
     const[id,setID]=useState('');
     const[reg,setReg]=useState('');
+    const navigate=useNavigate();
 
 
     const [user, setUser] = useState({
@@ -32,32 +33,47 @@ const  Register :React.FC= () =>{
     const handleSubmit = async (event: FormEvent) => {
         event.preventDefault();
         try {
-            // 
-            const response = await axios.get(`http://localhost:5000/allusers`);
-            console.log(response);
+            const response = await axios.get('http://localhost:5000/allusers');
             const users = response.data;
-            console.log(users);
-            // Check if the entered username and password match any user in the database
-            const user = users.find((user: { id:string,username: string,password:string,phone:string,address:string}) => user.username.toLowerCase === username.toLowerCase);
-            const userCount=users.count();
+      
+            // Check if the entered username matches any user in the database
+            const user = users.find(
+              (user: { id: number; username: string; password: string; phone: string; address: string }) =>
+                user.username.toLowerCase() === username.toLowerCase()
+            );
+      
+            const newID = users.length + 1;
+            setID(newID);
+      
             if (user) {
-                console.log("Бүртгэл амжилтгүй");
-                setReg('0');
+              console.log('Бүртгэл амжилтгүй nevtreh ner davhardsan bn');
+              setReg('0');
+              setMessage('Username already exists');
             } else {
-                console.log("Бүртгэл амжилттай");
-                setReg('1');
+              setReg('1');
+              try {
+                const postResponse = await axios.post('http://localhost:5000/users', {
+                  user_id: newID,
+                  password:password,
+                  username:username,
+                  phone:phone,
+                  address:address
+                });
+                if (postResponse.status === 201) {
+                  setMessage('User created successfully');
+                  navigate('/Login');
+                } else {
+                  setMessage('Failed to create user');
+                }
+              } catch (error) {
+                console.error('Error inserting user data:', error);
+                setMessage('Error inserting user data');
+              }
             }
           } catch (error) {
             console.error('Error fetching user data:', error);
-        
+            setMessage('Error fetching user data');
           }
-          if(reg==='1')
-          try{
-            const response=await axios.post('/users',user);
-          }catch(error){
-                console.error('Error inserting user data:',error);
-          }
-    
       };
 
     
