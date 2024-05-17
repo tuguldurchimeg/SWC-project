@@ -65,7 +65,37 @@ app.get("/places/:id", async (req, res) => {
     console.error(err.message);
   }
 });
-
+app.get("/users", (req, res) => {
+  const username = req.params.username;
+  pool.query("SELECT username,password FROM users", (err, result) => {
+    if (!err) {
+      if (result.rows.length > 0) {
+        res.send(result.rows);
+      } else {
+        res.status(404).send('User not found');
+      }
+    } else {
+      console.log(err.message);
+      res.status(500).send('Internal Server Error');
+    }
+  });
+});
+// getting the password to check if the input password is matching
+app.get("/users/login/:username", (req, res) => {
+  const username = req.params.username;
+  pool.query("SELECT password FROM users WHERE username=$1", [username], (err, result) => {
+    if (!err) {
+      if (result.rows.length > 0) {
+        res.send(result.rows[0]);
+      } else {
+        res.status(404).send('User not found');
+      }
+    } else {
+      console.log(err.message);
+      res.status(500).send('Internal Server Error');
+    }
+  });
+});
 // update a place name
 app.put("/places/:id", async (req, res) => {
   try {
@@ -80,6 +110,7 @@ app.put("/places/:id", async (req, res) => {
     console.error(err.message);
   }
 });
+
 // update an openhours
 app.put("/places/:id", async (req, res) => {
   try {
