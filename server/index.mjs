@@ -66,7 +66,7 @@ app.get("/places/:id", async (req, res) => {
   }
 });
 app.get("/users", (req, res) => {
-  const username = req.params.username;
+
   pool.query("SELECT username,password FROM users", (err, result) => {
     if (!err) {
       if (result.rows.length > 0) {
@@ -80,6 +80,30 @@ app.get("/users", (req, res) => {
     }
   });
 });
+app.post("/users",(req,res)=>{ 
+  const { user_id, password, username, phone, address } = req.body;
+  pool.query("INSERT INTO users(user_id,password,username,phone,address) values($1,$2,$3,$4,$5)",[user_id,password,username,phone,address], (err,result)=>{
+    if(!err)
+      res.send(result);
+    else 
+    console.log(err.message);
+  })
+})
+app.get("/allusers", (req, res) => {
+  pool.query("SELECT * FROM users", (err, result) => {
+    if (!err) {
+      if (result.rows.length > 0) {
+        res.send(result.rows);
+      } else {
+        res.status(404).send('User not found');
+      }
+    } else {
+      console.log(err.message);
+      res.status(500).send('Internal Server Error');
+    }
+  });
+});
+
 // getting the password to check if the input password is matching
 app.get("/users/login/:username", (req, res) => {
   const username = req.params.username;
@@ -96,6 +120,7 @@ app.get("/users/login/:username", (req, res) => {
     }
   });
 });
+
 // update a place name
 app.put("/places/:id", async (req, res) => {
   try {

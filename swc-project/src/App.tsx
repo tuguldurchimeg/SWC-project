@@ -8,6 +8,7 @@ import Place from './Place';
 import Result from './Result';
 import Saved from './Saved';
 import Login from './Login';
+import Register from './Register';
 function App() {
   return (
     <>
@@ -18,6 +19,7 @@ function App() {
           <Route path="/Result" element={<Result/>}/>
           <Route path="/Saved" element={<Saved/>}/>
           <Route path="/Login" element={<Login/>}/>
+          <Route path="/Register" element={<Register/>}/>
         </Routes>
       </Router>
     </>     
