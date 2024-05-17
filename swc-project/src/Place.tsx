@@ -1,35 +1,40 @@
- import Menu from "./components/Menu/Menu"
  import './styles/App.css'
  import './styles/Place.css'
+ import Menu from "./components/Menu/Menu"
  import Comments from "./components/Comment/Comments"
  import HeartBtn from "./components/HeartBtn"
- import {Route, Link, Routes, useParams} from 'react-router-dom'
- import {useState, useEffect} from "react"
  import Footer from "./Footer"
 import Header from "./Header"
+import { useParams} from 'react-router-dom'
+import {useState, useEffect} from "react"
+import axios from "axios"
 
  export default function Place(){
-    const[places, setPlaces] = useState([]);
     const params = useParams();
-    const [data, setData] = useState<any[]>([]);
+    interface PlaceData {
+        id: string;
+        p_name: string;
+        link: string;
+        phone: number;
+        p_address: string;
+        p_type: string;
+        openhours: string;
+        capacity: number;
+        description: string;
+        totalrate: number;
+    }
+    const [data, setData] = useState<PlaceData[]>([]);
     
     const fetchData = async () => {
-        try {
-            const response = await fetch(`http://localhost:5000/places/${params.p_id}`);
-            if (!response.ok) {
-                throw new Error('Failed to fetch data');
-            }
-            const jsonData = await response.json();
-            setData(jsonData);
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
+        axios.get(`http://localhost:5000/places/${params.p_id}`).then((response) => {
+            setData(response.data);
+        });        
     }
 
     useEffect(() => {
         fetchData();
     }, []);
-    console.log(data);
+    if(!data) return null;
 
     return (
         <>
@@ -46,16 +51,16 @@ import Header from "./Header"
                     </div>
                     <div className="text-info-res">
                         <div>
-                            <h3 className="info-res-ttl">{data.id}</h3>
+                            <h3 className="info-res-ttl">{data.p_name}</h3>
                             <HeartBtn />
                         </div>
-                        <div className="info-res">Chinese Restaurant</div>
-                        <div className="info-res">10:00 - 18:00</div>
-                        <div className="info-res capacity">Багтаамж - 120</div>
+                        <div className="info-res">{data.p_type} ресторан</div>
+                        <div className="info-res">{data.openhours}</div>
+                        <div className="info-res capacity">Багтаамж - {data.capacity}</div>
 
                         <div className="totalRate">
                             <i className="fa-solid fa-star"></i>
-                            <span>4.3</span>
+                            <span>{data.totalrate}</span>
                         </div>       
                     </div>
                 </section>
@@ -74,9 +79,9 @@ import Header from "./Header"
                             <Comments />
                             <section className="contact-sec">
                                 <div>
-                                    <a href="#" id="website">jadegarden.mn</a>
-                                    <a href="tel:+97699761430" id="phone-rest">+976 99761430</a>
-                                    <a href="#" id="address-rest">Jade Garden, Novotel , Baga toiruu, Ulaanbaatar </a>
+                                    <a href="#" id="website">{data.link}</a>
+                                    <a href="tel:+97699761430" id="phone-rest">+976 {data.phone}</a>
+                                    <a href="#" id="address-rest">{data.p_address} </a>
                                 </div>
                             </section>
                         </div>         

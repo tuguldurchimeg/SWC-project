@@ -52,18 +52,7 @@ main{
 	box-shadow: var(--large-shadow);
 	border-radius: 40px;
 }
-.search-bar select{
-	width: 10rem;
-	padding: 0.5rem;
-	font-size: 1.2rem;
-	border-radius: 25px;
-	background: none;
-	border: none;
-	&:hover{
-		background-color: var(--color-light-grey-background);
-		box-shadow: var(--medium-shadow);
-	}
-}
+
 .search-btn{
 	width: 3rem;
 	height: 3rem;
@@ -72,7 +61,7 @@ main{
 	border: none;
 	border-radius: 50%;
 	& > i{
-		font-size: 1.5rem;
+		font-size: 1.3rem;
 	}
 }
 

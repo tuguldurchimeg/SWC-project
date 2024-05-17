@@ -4,27 +4,59 @@ import background from './assets/backgroundoflogin.svg'
 import "./styles/home.css"
 import Footer from "./Footer"
 import Header from "./Header"
+import Select from "react-select"
+import axios from "axios"
 
 function Home(){
+    const districtOptions = [
+        { label: 'Сүхбаатар', value: 'Сүхбаатар' },
+        { label: 'Баянзүрх', value: 'Баянзүрх' },
+        { label: 'Хан-Уул', value: 'Хан-Уул' },
+        { label: 'Чингэлтэй', value: 'Чингэлтэй' },
+        { label: 'Баянгол', value: 'Баянгол' },
+    ];
+    const typeOptions = [
+        { label: 'Солонгос', value: 'Солонгос' },
+        { label: 'Хятад', value: 'Хятад' },
+        { label: 'Монгол', value: 'Монгол' },
+        { label: 'Европ', value: 'Европ' },
+        { label: 'Бусад', value: 'Бусад' },
+    ];
+    const customTheme = (theme:any) => ({
+        ...theme,
+        borderRadius: 20,
+        colors: {
+          ...theme.colors,
+          primary25: 'lightblue',
+          primary: 'darkblue', 
+        },
+    });
+
     const [data, setData] = useState<any[]>([]);
+    const [filterDistrict, setDistrictFilter] = useState<string>('');;
+    const [filterType, setTypeFilter] = useState<string>('');
+    const [filteredResults, setFilteredResults] = useState<any[]>([]);
     
     const fetchData = async () => {
-        try {
-            const response = await fetch("http://localhost:5000/places");
-            if (!response.ok) {
-                throw new Error('Failed to fetch data');
-            }
-            const jsonData = await response.json();
-            // console.log(jsonData);
-            setData(jsonData);
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
+        axios.get(`http://localhost:5000/places`).then((response) => {
+            setData(response.data);
+            setFilteredResults(response.data);
+        });        
     }
-
     useEffect(() => {
         fetchData();
     }, []);
+
+    const searchPlaces = () => {
+        console.log(filterDistrict);
+        console.log(filterType);
+        const filteredData = data.filter((item) => {
+            const matchesDistrict = filterDistrict ? item.p_address.toLowerCase().includes(filterDistrict.toLowerCase()) : true;
+            const matchesType = filterType ? item.p_type.toLowerCase() === filterType.toLowerCase() : true;
+            return matchesDistrict && matchesType;
+        });
+        setFilteredResults(filteredData);
+    }
     return (
         <>
             <Header/>
@@ -33,27 +65,21 @@ function Home(){
                 <h1></h1>
                 <ul className="search-bar">
                     <li>
-                        <select className="fltr-dist">
-                            <option>Дүүрэг</option>
-                            <option>Сүхбаатар</option>
-                            <option>Баянзүрх</option>
-                            <option>Хан-Уул</option>
-                            <option>Чингэлтэй</option>
-                            <option>Баянгол</option>
-                        </select>
+                        <Select className="fltr-dist"
+                            options={districtOptions}
+                            theme={customTheme}
+                            onChange={(opt) => setDistrictFilter(opt?.value || '')}
+                        />
                     </li>
                     <li >
-                        <select className="fltr-type">
-                            <option value="Төрөл">Төрөл</option>
-                            <option value="Солонгос">Солонгос</option>
-                            <option value="Хятад">Хятад</option>
-                            <option value="Монгол">Монгол</option>
-                            <option value="Европ">Европ</option>
-                            <option value="Бусад">Бусад</option>
-                        </select>
+                        <Select className="fltr-type"
+                            options={typeOptions}
+                            theme={customTheme}
+                            onChange={(opt) => setTypeFilter(opt?.value || '')}
+                        />
                     </li>
-                    <li className="search-button-background" id="search">
-                        <button className="search-btn">
+                    <li >
+                        <button className="search-btn" onClick={()=> searchPlaces()}>
                             <i className="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </li>
@@ -92,7 +118,7 @@ function Home(){
             </ul>
             <h1 className='ttl-rec'>Санал болгох</h1>
             <div className="restaurants">
-                {data.map((item, index) => (
+                {filteredResults.map((item, index) => (
                     <FoodPlace 
                         key={index}
                         id={item.id}
