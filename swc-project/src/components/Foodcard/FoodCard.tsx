@@ -18,7 +18,10 @@ export default function FoodCard() {
             <div className="text-wrapper">
                 <div className="info-food-ttl"> 
                     <h3>Tony Wong hjf asdf</h3>
-                    <HeartBtn />
+                    <HeartBtn 
+                            type="food"
+                            item_id="1234"
+                        />
                 </div>
                 
                 <div className="info-food sz-food">2 хүн</div>

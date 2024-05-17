@@ -66,36 +66,35 @@ app.get("/places/:id", async (req, res) => {
   }
 });
 app.get("/users", (req, res) => {
-
   pool.query("SELECT username,password FROM users", (err, result) => {
     if (!err) {
       if (result.rows.length > 0) {
         res.send(result.rows);
       } else {
-        res.status(404).send('User not found');
+        res.status(404).send("User not found");
       }
     } else {
       console.log(err.message);
-      res.status(500).send('Internal Server Error');
+      res.status(500).send("Internal Server Error");
     }
   });
 });
 
-app.get('/allusers', (req, res) => {
-  pool.query('SELECT * FROM users', (err, result) => {
+app.get("/allusers", (req, res) => {
+  pool.query("SELECT * FROM users", (err, result) => {
     if (!err) {
       res.send(result.rows);
     } else {
       console.log(err.message);
-      res.status(500).send('Internal Server Error');
+      res.status(500).send("Internal Server Error");
     }
   });
 });
 
-app.post('/users', (req, res) => {
+app.post("/users", (req, res) => {
   const { user_id, password, username, phone, address } = req.body;
   pool.query(
-    'INSERT INTO users(user_id,password,username,phone,address) values($1,$2,$3,$4,$5)',
+    "INSERT INTO users(user_id,password,username,phone,address) values($1,$2,$3,$4,$5)",
     [user_id, password, username, phone, address],
     (err, result) => {
       if (!err) {
@@ -110,18 +109,22 @@ app.post('/users', (req, res) => {
 // getting the password to check if the input password is matching
 app.get("/users/login/:username", (req, res) => {
   const username = req.params.username;
-  pool.query("SELECT password FROM users WHERE username=$1", [username], (err, result) => {
-    if (!err) {
-      if (result.rows.length > 0) {
-        res.send(result.rows[0]);
+  pool.query(
+    "SELECT password FROM users WHERE username=$1",
+    [username],
+    (err, result) => {
+      if (!err) {
+        if (result.rows.length > 0) {
+          res.send(result.rows[0]);
+        } else {
+          res.status(404).send("User not found");
+        }
       } else {
-        res.status(404).send('User not found');
+        console.log(err.message);
+        res.status(500).send("Internal Server Error");
       }
-    } else {
-      console.log(err.message);
-      res.status(500).send('Internal Server Error');
     }
-  });
+  );
 });
 
 // update a place name
@@ -161,6 +164,33 @@ app.delete("/places/:id", async (req, res) => {
     const deletePlace = await pool.query("DELETE FROM places WHERE id = $1", [
       id,
     ]);
+    res.json("Place was deleted!");
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+// SAVED ITEMS
+app.post("/saveditems", async (req, res) => {
+  try {
+    const { user_id, food_id, place_id } = req.body;
+    const newPlace = await pool.query(
+      "INSERT INTO saveditems (user_id, food_id, place_id) VALUES($1, $2, $3) RETURNING *",
+      [user_id, food_id, place_id]
+    );
+    res.json(newPlace.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+app.delete("/saveditems/:item_id", async (req, res) => {
+  try {
+    const { item_id } = req.params;
+    const deletePlace = await pool.query(
+      "DELETE FROM saveditems WHERE food_id = $1 OR place_id = $1",
+      [item_id]
+    );
     res.json("Place was deleted!");
   } catch (err) {
     console.error(err.message);

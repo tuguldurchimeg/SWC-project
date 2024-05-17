@@ -52,7 +52,10 @@ import axios from "axios"
                     <div className="text-info-res">
                         <div>
                             <h3 className="info-res-ttl">{data.p_name}</h3>
-                            <HeartBtn />
+                            <HeartBtn 
+                                type="place"
+                                item_id={data.id}
+                            />
                         </div>
                         <div className="info-res">{data.p_type} ресторан</div>
                         <div className="info-res">{data.openhours}</div>

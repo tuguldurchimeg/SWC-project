@@ -19,7 +19,12 @@ function FoodPlace(props:FoodPlaceProps){
     return(
         <Link to={`Place/${props.id}`}>
             <div className="restaurant">
-                <div className="likeIcon"><HeartBtn /></div>
+                <div className="likeIcon">
+                    <HeartBtn 
+                        type="place"
+                        item_id={props.id}
+                    />
+                </div>
                 <img src="src/assets/burgerking.png" alt="Burger King"/>
                 <article className="generalInfo">
                     <div>

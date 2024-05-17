@@ -26,7 +26,10 @@ export default function RestCard(props:RestCardProps){
                 <div className="text-wrapper">
                     <div className="info-rest-ttl"> 
                         <h3>{props.name}</h3>
-                        <HeartBtn />
+                        <HeartBtn 
+                            type="place"
+                            item_id={props.id}
+                        />
                     </div>
                     
                     <div className="info-rest tp-rest">{props.typeOfPlace}</div>
