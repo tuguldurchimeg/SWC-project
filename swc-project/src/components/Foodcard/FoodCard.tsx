@@ -1,4 +1,5 @@
 import './foodcard.css'
+import HeartBtn from '../HeartBtn';
 
 export default function FoodCard() {
     return (
@@ -17,11 +18,7 @@ export default function FoodCard() {
             <div className="text-wrapper">
                 <div className="info-food-ttl"> 
                     <h3>Tony Wong hjf asdf</h3>
-                    <img
-                        src="src/assets/Heart-grey.svg"
-                        alt="like"
-                        className="like-heart"
-                    />
+                    <HeartBtn />
                 </div>
                 
                 <div className="info-food sz-food">2 хүн</div>

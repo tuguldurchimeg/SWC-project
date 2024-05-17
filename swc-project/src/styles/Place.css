@@ -76,7 +76,7 @@
     justify-content: space-between;
     align-items: center;
   }
-  .fa-heart{
+  .text-info-res button{
     font-size: 2em;
     color: var(--color-background);
   }

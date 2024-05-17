@@ -23,9 +23,10 @@
 .restaurant .likeIcon button{
 	position:absolute;
 	right:10px;
-	top:10px;
+	top:5px;
 	z-index:2;
 	color:var(--color-background);
+	font-size: 1.7rem;
 	background:none;
 	border:none;
 }

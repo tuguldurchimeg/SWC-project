@@ -19,10 +19,13 @@ main{
 .listStyle li{
 	display: flex;
 	flex-direction: column;
-	&:hover{
+	align-items: center;
+	&:hover, path:hover{
 		color: var(--color-text);
+		/* stroke: var(--color-text); */
 	}
 }
+
 .ttl-rec{
 	color: var(--color-text);
 }
@@ -68,6 +71,9 @@ main{
 	color: white;
 	border: none;
 	border-radius: 50%;
+	& > i{
+		font-size: 1.5rem;
+	}
 }
 
 

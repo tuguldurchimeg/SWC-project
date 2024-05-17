@@ -2,7 +2,9 @@ import React from 'react'
 import './foodplace.css'
 import foodplace from 'src/assets/burgerking.png'
 import { Link } from 'react-router-dom';
+import HeartBtn from '../HeartBtn';
 interface FoodPlaceProps {
+    id: string;
     name: string;
     typeOfPlace: string;
     workHours: string;
@@ -15,9 +17,9 @@ function FoodPlace(props:FoodPlaceProps){
         
     }
     return(
-        <Link to="/Place">
+        <Link to={`Place/${props.id}`}>
             <div className="restaurant">
-                <div className="likeIcon"><button className="fa-solid fa-heart" onClick={getData}/></div>
+                <div className="likeIcon"><HeartBtn /></div>
                 <img src="src/assets/burgerking.png" alt="Burger King"/>
                 <article className="generalInfo">
                     <div>

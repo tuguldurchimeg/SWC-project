@@ -2,10 +2,35 @@
  import './styles/App.css'
  import './styles/Place.css'
  import Comments from "./components/Comment/Comments"
+ import HeartBtn from "./components/HeartBtn"
+ import {Route, Link, Routes, useParams} from 'react-router-dom'
+ import {useState, useEffect} from "react"
  import Footer from "./Footer"
 import Header from "./Header"
 
  export default function Place(){
+    const[places, setPlaces] = useState([]);
+    const params = useParams();
+    const [data, setData] = useState<any[]>([]);
+    
+    const fetchData = async () => {
+        try {
+            const response = await fetch(`http://localhost:5000/places/${params.p_id}`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
+            const jsonData = await response.json();
+            setData(jsonData);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+    console.log(data);
+
     return (
         <>
             <Header/>
@@ -21,8 +46,8 @@ import Header from "./Header"
                     </div>
                     <div className="text-info-res">
                         <div>
-                            <h3 className="info-res-ttl">Jade Garden</h3>
-                            <i className="fa-regular fa-heart"></i>
+                            <h3 className="info-res-ttl">{data.id}</h3>
+                            <HeartBtn />
                         </div>
                         <div className="info-res">Chinese Restaurant</div>
                         <div className="info-res">10:00 - 18:00</div>

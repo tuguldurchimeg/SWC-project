@@ -14,7 +14,7 @@ function App() {
       <Router>
         <Routes>
           <Route  path="/" element={<Home/>}/>
-          <Route path="/Place" element={<Place/>}/>
+          <Route path="/Place/:p_id" element={<Place/>}/>
           <Route path="/Result" element={<Result/>}/>
           <Route path="/Saved" element={<Saved/>}/>
           <Route path="/Login" element={<Login/>}/>
