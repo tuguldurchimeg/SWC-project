@@ -10,7 +10,7 @@ main{
     gap: 3em;
 	margin: 0 10em;
 }
-.listStyle, .ttl-rec{
+.listStyle{
 	display: flex;
 	justify-content: space-evenly;
 	margin: 0;
@@ -20,22 +20,31 @@ main{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	&:hover, path:hover{
+	font-weight: 550;
+	font-size: 1.3em;
+	gap: 0.5rem;
+	margin-bottom: 1em;
+	cursor: pointer;
+	&:hover{
 		color: var(--color-text);
-		/* stroke: var(--color-text); */
+	}
+}
+.listStyle img {
+	width: 2rem;
+	height: 2rem;
+	&:hover{
+		transform: scale(1.2);
 	}
 }
 
-.ttl-rec{
-	color: var(--color-text);
-}
 .home{
 	background-image: url("src/assets/backgroundoflogin.svg");
-	height: 15rem;
+	height: 30em;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	background-position: 20%;
 }
 .home > h1{
 	color: white;
@@ -60,6 +69,7 @@ main{
 	color: white;
 	border: none;
 	border-radius: 50%;
+	cursor: pointer;
 	& > i{
 		font-size: 1.3rem;
 	}

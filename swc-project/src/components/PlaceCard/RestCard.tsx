@@ -1,10 +1,20 @@
 import { Link } from 'react-router-dom'
 import './restCard.css'
 import Place from '../../Place'
+import HeartBtn from '../HeartBtn'
+interface RestCardProps {
+    id: string;
+    name: string;
+    typeOfPlace: string;
+    workHours: string;
+    address: string;
+    rating: number;
+    desc: string;
+}
 
-export default function RestCard(){
+export default function RestCard(props:RestCardProps){
     return(
-        <Link to="/Place">
+        <Link to={`Place/${props.id}`}>
             <article className="restaurant-card">
                 <div className="img-rest">
                     <img
@@ -15,22 +25,18 @@ export default function RestCard(){
                 </div>
                 <div className="text-wrapper">
                     <div className="info-rest-ttl"> 
-                        <h3>Sura korean restaurant</h3>
-                        <img
-                            src="src/assets/Heart-grey.svg"
-                            alt="like"
-                            className="like-heart"
-                        />
+                        <h3>{props.name}</h3>
+                        <HeartBtn />
                     </div>
                     
-                    <div className="info-rest tp-rest">Солонгос</div>
-                    <div className="info-rest open-rest">07:30-21:00</div>
-                    <div className="info-rest address-rest">СБД, 1-р хороо 12гудамж</div>
-                    <p className="info-rest desc-rest">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut ex libero. Curabitur tincidunt felis nisl, ac </p>
+                    <div className="info-rest tp-rest">{props.typeOfPlace}</div>
+                    <div className="info-rest open-rest">{props.workHours}</div>
+                    <div className="info-rest address-rest">{props.address}</div>
+                    <p className="info-rest desc-rest">{props.desc}</p>
 
                     <div className="rate-rest">
                         <i className="fa-solid fa-star"></i>
-                        <span>4.3</span>
+                        <span>{props.rating}</span>
                     </div>
                 </div>
             </article>

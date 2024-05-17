@@ -2,14 +2,18 @@
 .rslt-main-container{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
     margin: 2em 3em;
-    gap: 2em;
+    column-gap: 5em;
+    row-gap: 2em;
 }
 
 /* ---- Restaurant card container style ---- */
+.rest-cards{
+  width: 60rem;
+}
 .rest-cards > div{
     height: inherit;
     display: grid;
