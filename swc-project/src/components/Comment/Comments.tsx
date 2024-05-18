@@ -13,7 +13,7 @@ export default function Comments(props:CommentsProps){
 
     useEffect(() => {
         const fetchData = async () => {
-            axios.get(`http://localhost:5000/places/${props.place_id}`).then((response) => {
+            axios.get(`http://localhost:5000/comments/${props.place_id}`).then((response) => {
             setCommentData(response.data)})
         };
         fetchData();
@@ -24,7 +24,8 @@ export default function Comments(props:CommentsProps){
     return (
         <section className="comments-sec">
             <div className="comments">
-                {/* {commentData.map((item, index) => (
+
+                {commentData.map((item, index) => (
                     <Comment 
                         key={index}
                         user_id={item.user_id}
@@ -32,7 +33,7 @@ export default function Comments(props:CommentsProps){
                         rate={item.rate}
                         comment={item.comment}
                     />
-                ))} */}
+                )) }
             </div>
             <div className="comment-footer">
                 <span className="total-comm">Нийт Сэтгэгдэл - {commentData.length}</span>

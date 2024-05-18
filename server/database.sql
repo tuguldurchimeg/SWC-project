@@ -10,7 +10,7 @@ create table places(
     openhours varchar(10),
     capacity int,
     description varchar(50),
-    totalRate float check(totalRate > 0.0 and totalRate < 5.0)
+    totalRate float check(totalRate >= 0.0 and totalRate =< 5.0)
 );
 create table foods(
     id varchar(10) primary key,
@@ -19,7 +19,7 @@ create table foods(
     portion int,
     price int,
     calories int,
-    totalRate float check(totalRate > 0.0 and totalRate < 5.0)
+    totalRate float check(totalRate >= 0.0 and totalRate =< 5.0)
 );
 create table users(
     user_id varchar(10) primary key,

@@ -67,6 +67,33 @@ app.get("/places/:id", async (req, res) => {
     console.error(err.message);
   }
 });
+// update a place name
+app.put("/places/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { p_name } = req.body;
+    const updatePlace = await pool.query(
+      "UPDATE places SET p_name = $1 WHERE id = $2",
+      [p_name, id]
+    );
+    res.json("place name was updated");
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+// delete a place
+app.delete("/places/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletePlace = await pool.query("DELETE FROM places WHERE id = $1", [
+      id,
+    ]);
+    res.json("Place was deleted!");
+  } catch (err) {
+    console.error(err.message);
+  }
+});
 
 // LOGIN auth
 app.post("/login", async (req, res) => {
@@ -147,48 +174,25 @@ app.get("/users/login/:username", (req, res) => {
     }
   );
 });
-
-// update a place name
-app.put("/places/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { p_name } = req.body;
-    const updatePlace = await pool.query(
-      "UPDATE places SET p_name = $1 WHERE id = $2",
-      [p_name, id]
-    );
-    res.json("place name was updated");
-  } catch (err) {
-    console.error(err.message);
-  }
-});
-
-// update an openhours
-app.put("/places/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { openhours } = req.body;
-    const updateHours = await pool.query(
-      "UPDATE places SET openhours = $1 WHERE id = $2",
-      [openhours, id]
-    );
-    res.json("openhours was updated");
-  } catch (err) {
-    console.error(err.message);
-  }
-});
-
-// delete a place
-app.delete("/places/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const deletePlace = await pool.query("DELETE FROM places WHERE id = $1", [
-      id,
-    ]);
-    res.json("Place was deleted!");
-  } catch (err) {
-    console.error(err.message);
-  }
+// get username by id
+app.get("/users/:user_id", (req, res) => {
+  const user_id = req.params.user_id;
+  pool.query(
+    "SELECT username FROM users WHERE user_id=$1",
+    [user_id],
+    (err, result) => {
+      if (!err) {
+        if (result.rows.length > 0) {
+          res.send(result.rows[0]);
+        } else {
+          res.status(404).send("User not found");
+        }
+      } else {
+        console.log(err.message);
+        res.status(500).send("Internal Server Error");
+      }
+    }
+  );
 });
 
 // SAVED ITEMS
@@ -252,6 +256,30 @@ app.get("/comments/:place_id", async (req, res) => {
       "SELECT * FROM comments WHERE place_id = $1",
       [place_id]
     );
+    res.json(item.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+// GET Foods by place_id
+app.get("/foods/:place_id", async (req, res) => {
+  try {
+    const { place_id } = req.params;
+    const item = await pool.query("SELECT * FROM foods WHERE place_id = $1", [
+      place_id,
+    ]);
+    res.json(item.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+// GET Foods by food_id
+app.get("/foods/:food_id", async (req, res) => {
+  try {
+    const { food_id } = req.params;
+    const item = await pool.query("SELECT * FROM foods WHERE food_id = $1", [
+      food_id,
+    ]);
     res.json(item.rows);
   } catch (err) {
     console.error(err.message);

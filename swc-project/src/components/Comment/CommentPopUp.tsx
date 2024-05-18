@@ -23,11 +23,11 @@ export default function CommentPopUp(props:ModalProps){
   const writeNewComment = () => {
       const currentDate = new Date();
       const dateString = currentDate.getMonth()+1 + '-' + currentDate.getDate() + '-' + currentDate.getFullYear();
-      axios.post("http://localhost:5000/saveditems", {
+      axios.post("http://localhost:5000/comments", {
                   user_id: auth.user?.user_id,
                   place_id: props.place_id,
                   datew: dateString,
-                  rate: totalStars,
+                  rate: rating,
                   comment: comment
 
               })
@@ -78,7 +78,7 @@ export default function CommentPopUp(props:ModalProps){
               </label>
             );
           })}
-          <button className="post-comment" onClick={()=> { writeNewComment; props.setPopState(false)}}>
+          <button className="post-comment" onClick={()=> writeNewComment()}>
             Нэмэх
           </button>
         </div>

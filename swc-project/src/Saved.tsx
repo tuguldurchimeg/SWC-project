@@ -57,7 +57,6 @@ export default function Saved(){
         const fetchFoodsData = async () => {
             try {
                 const promises = filteredFoods.map(async food => {
-                    // Assuming you have an endpoint to fetch food data by ID
                     const response = await axios.get(`http://localhost:5000/foods/${food.food_id}`);
                     return response.data;
                 });
