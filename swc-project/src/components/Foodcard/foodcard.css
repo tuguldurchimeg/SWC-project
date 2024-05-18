@@ -63,12 +63,12 @@
     object-fit: cover;
 }
 .sz-food::before{
-    content: url("src/assets/People.svg");
+    content: url("/src/assets/People.svg");
     margin-right: 0.3rem;
 }
 
 .cal-food::before{
-    content: url("src/assets/Fire.svg");
+    content: url("/src/assets/Fire.svg");
     margin-right: 0.3rem;
 }
 .prc-food{

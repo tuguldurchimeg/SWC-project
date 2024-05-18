@@ -21,7 +21,7 @@ header{
 	margin:0 10px 0 10px;
 }
 
-.navigationBar button{
+.navigationBar button, label{
 	font-family:var(--font-family-1);
     font-weight: 600;
     font-style: normal;
@@ -34,7 +34,13 @@ header{
 }
 
 .navButtons .fa-solid{
+	font-size: 1.3rem;
+	margin: 0 0.7rem;
 	&:hover{
 		color: var(--color-primary);
 	}
+}
+.navButtons > label{
+	border: 1px solid var(--color-border);
+	padding: 0.3rem 1.5rem;
 }

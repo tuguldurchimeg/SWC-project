@@ -40,6 +40,7 @@
     padding-left: 10px;
     background-image: var(--color-gradient-1);
     color: var(--color-background);
+    text-align: center;
   }
   .inner:after {
     content: "Газар";
@@ -51,10 +52,11 @@
   .switch {
     display: block;
     width: 2em;
+    height: 2em;
     margin: 5px;
     background: #fff;
     position: absolute;
-    top: 0;
+    top: 0.5rem;
     bottom: 0;
     right: 70%;
     border: 0 solid #bbb;
@@ -65,5 +67,5 @@
     margin-left: 0;
   }
   .checkbox:checked + .label .switch {
-    right: 0px;
+    right: 10px;
   }

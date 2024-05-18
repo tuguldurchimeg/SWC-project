@@ -1,26 +1,31 @@
 import './comment.css'
 
-export default function Comment(){
+interface CommentProps{
+    user_id: string;
+    date: string;
+    rate: number;
+    comment: string;
+}
+
+export default function Comment(props:CommentProps){
+    const rateHtml = () => {
+        const stars = Array.from({ length: props.rate }, (_, index) => (
+            <img src="/src/assets/Star.svg" className="icon-star" key={index} />
+        ));
+        return stars;
+    }
     return (
         <article className="comment">
             <div className="info-comm">
                 <div>
-                    <h4 className="ttl-user">Хэрэглэгч</h4>
-                    <span className="date-comm">05-07-2024</span>
+                    <h4 className="ttl-user">{props.user_id}</h4>
+                    <span className="date-comm">{props.date}</span>
                 </div>
                 <div className="stars">
-                    <img src="src/assets/Star.svg" className="icon-star"></img>
-                    <img src="src/assets/Star.svg" className="icon-star"></img>
-                    <img src="src/assets/Star.svg" className="icon-star"></img>
-                    <img src="src/assets/Star.svg" className="icon-star"></img>
-                    <img src="src/assets/Star.svg" className="icon-star"></img>
+                    {rateHtml()}
                 </div>
             </div>
-            <p className="desc-comm">Jade Garden Novotel-3н давхарт
-                Хятад хоол идмээр санагдаал найзаасаа асуутал энэ газрыг санал болголоо.
-                Нам гүм тохилог орчинтой
-                Хоол үнэхээр гоё амттай юм байна.
-                Мантуутай гахайн мах нь бага зэрэг аргуу санагдлаа бусдаар бол 10/10.</p>
+            <p className="desc-comm">{props.comment}</p>
         </article>
     )
 }

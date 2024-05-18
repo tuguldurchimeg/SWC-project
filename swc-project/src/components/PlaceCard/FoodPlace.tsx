@@ -14,7 +14,7 @@ interface FoodPlaceProps {
 
 function FoodPlace(props:FoodPlaceProps){
     return(
-        <Link to={`Place/${props.id}`}>
+        <Link to={`/Place/${props.id}`}>
             <div className="restaurant">
                 <div className="likeIcon">
                     <HeartBtn 

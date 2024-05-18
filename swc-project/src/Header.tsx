@@ -14,12 +14,12 @@ export default function Header() {
                 
                 <div className="navButtons">
                   
-                    <button onClick={() => auth.logOut()}><i className="fa-solid fa-arrow-right-from-bracket"></i></button>
+                  <button onClick={() => auth.logOut()}><i className="fa-solid fa-arrow-right-from-bracket"></i></button>
                   
                   <Link to="/Saved">
                     <button><i className="fa-solid fa-cart-shopping"></i></button>
                   </Link>
-                  <button>{auth.user?.username}</button>
+                  <label>{auth.user?.username}</label>
                 </div>
               </nav>
           </header>

@@ -73,7 +73,9 @@ app.post("/login", async (req, res) => {
   const { username, password } = req.body;
   const secretKey = "secret-key-black";
   // Fetch user data from the API
-  const response = await axios.get(`http://localhost:5000/users`);
+  const response = await axios.get(
+    `http://localhost:5000/users/login/${username}`
+  );
   const user = response.data;
   // Check if the entered username and password match any user in the database
   if (!user)
@@ -92,25 +94,12 @@ app.post("/login", async (req, res) => {
       username: user.username,
     },
     secretKey,
-    { expiresIn: "2m" }
+    { expiresIn: "1h" }
   );
   res.json({ user: user, token: jwtToken });
 });
-app.get("/users", (req, res) => {
-  pool.query("SELECT user_id, username,password FROM users", (err, result) => {
-    if (!err) {
-      if (result.rows.length > 0) {
-        res.send(result.rows[0]);
-      } else {
-        res.status(404).send("User not found");
-      }
-    } else {
-      console.log(err.message);
-      res.status(500).send("Internal Server Error");
-    }
-  });
-});
 
+// GET all user datas
 app.get("/allusers", (req, res) => {
   pool.query("SELECT * FROM users", (err, result) => {
     if (!err) {
@@ -122,6 +111,7 @@ app.get("/allusers", (req, res) => {
   });
 });
 
+// POST user data / register user
 app.post("/users", (req, res) => {
   const { user_id, password, username, phone, address } = req.body;
   pool.query(
@@ -141,7 +131,7 @@ app.post("/users", (req, res) => {
 app.get("/users/login/:username", (req, res) => {
   const username = req.params.username;
   pool.query(
-    "SELECT password FROM users WHERE username=$1",
+    "SELECT user_id, username, password FROM users WHERE username=$1",
     [username],
     (err, result) => {
       if (!err) {
@@ -188,7 +178,7 @@ app.put("/places/:id", async (req, res) => {
   }
 });
 
-// delete
+// delete a place
 app.delete("/places/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -236,6 +226,33 @@ app.delete("/saveditems/:item_id", async (req, res) => {
       [item_id]
     );
     res.json("Place was deleted!");
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+// POST Comment
+app.post("/comments", async (req, res) => {
+  try {
+    const { user_id, place_id, datew, rate, comment } = req.body;
+    const newPlace = await pool.query(
+      "INSERT INTO comments (user_id, place_id, datew, rate, comment) VALUES($1, $2, $3, $4, $5) RETURNING *",
+      [user_id, place_id, datew, rate, comment]
+    );
+    res.json(newPlace.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+// GET Comments of place
+app.get("/comments/:place_id", async (req, res) => {
+  try {
+    const { place_id } = req.params;
+    const item = await pool.query(
+      "SELECT * FROM comments WHERE place_id = $1",
+      [place_id]
+    );
+    res.json(item.rows);
   } catch (err) {
     console.error(err.message);
   }

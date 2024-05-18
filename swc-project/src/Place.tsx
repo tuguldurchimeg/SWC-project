@@ -79,7 +79,7 @@ import axios from "axios"
                 <section className="main">
                         <Menu />
                         <div>
-                            <Comments />
+                            <Comments place_id={params.p_id}/>
                             <section className="contact-sec">
                                 <div>
                                     <a href="#" id="website">{data.link}</a>

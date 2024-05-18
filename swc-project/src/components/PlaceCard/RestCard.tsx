@@ -14,7 +14,7 @@ interface RestCardProps {
 
 export default function RestCard(props:RestCardProps){
     return(
-        <Link to={`Place/${props.id}`}>
+        <Link to={`/Place/${props.id}`}>
             <article className="restaurant-card">
                 <div className="img-rest">
                     <img
