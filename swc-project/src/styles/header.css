@@ -16,39 +16,25 @@ header{
 	list-style:none;
 	display:flex;
 	flex-direction:row;
-	
 }
 .navigationBar ul li{
 	margin:0 10px 0 10px;
 }
-.navigationBar ul li a{
-	color:var(--color-border);
-}
-.navigationButtons{
-	display:grid;
-	grid-template-column:1 fr 1fr;
-	grid-gap:10px;
-}
+
 .navigationBar button{
 	font-family:var(--font-family-1);
     font-weight: 600;
     font-style: normal;
     font-size:15px;
     margin:10px;
-}
-.navigationBar button:nth-child(1){
-	background-color:var(--color-background);
-}
-.navigationBar button:nth-child(2){
-	background-color:var(--color-primary);
-	color:var(--color-background);
+	cursor:pointer;
+	border-radius:20px;
+	background: none;
+	border: none;	
 }
 
-.navigationBar button{
-	outline:none;
-	border:none;
-	cursor:pointer;
-	border-radius:15px;
-	padding:10px 30px 10px 30px;
-	border:1px  var(--color-border) solid;	
+.navButtons .fa-solid{
+	&:hover{
+		color: var(--color-primary);
+	}
 }

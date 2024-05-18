@@ -35,9 +35,6 @@
   }
 
   @media(max-width: 1407px){
-    .card-fltr{
-      display: none;
-    }
     .fltr-bar{
       display: flex;
     };

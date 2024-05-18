@@ -1,15 +1,15 @@
 
 .card-fltr{
-    width: 20em;
+    width: 20rem;
     height: fit-content;
     border-radius: 20px;
-    background-color: var(background-color);
+    background-color: var(--color-background);
     border: 1px solid var(--color-border);
     box-shadow: var(--large-shadow);
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: sticky;
+    z-index: 1;
 }
 .fltrs{
     width: 80%;
@@ -23,4 +23,9 @@
     display: flex;
     align-items: center;
     margin-top: 1em;
+}
+.fltr-elm{
+    display: flex;
+    justify-content: space-between;
+    color: var(--color-border);
 }

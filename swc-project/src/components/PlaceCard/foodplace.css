@@ -49,7 +49,8 @@
 }
 .restaurant .generalInfo p{
 	color:var(--color-border);
-	margin: 0.3em 0;
+	margin: 0;
+	margin-left: 0.8em;
 	font-size: 1em;
 }
 .restaurant .generalInfo .ratingStar{
@@ -64,4 +65,17 @@
 	position: absolute;
 	right: 0.5em;
 	top: 1em;
+}
+.tp-rest::before{
+    content: url("src/assets/Tag.svg");
+    margin-right: 0.3rem;
+}
+
+.open-rest::before{
+    content: url("src/assets/Clock.svg");
+    margin-right: 0.3rem;
+}
+.address-rest::before{
+    content: url("src/assets/Location.svg");
+    margin-right: 0.3rem;
 }

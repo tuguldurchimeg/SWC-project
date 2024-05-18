@@ -13,9 +13,6 @@ interface FoodPlaceProps {
 }
 
 function FoodPlace(props:FoodPlaceProps){
-    const getData=()=>{
-        
-    }
     return(
         <Link to={`Place/${props.id}`}>
             <div className="restaurant">
@@ -29,9 +26,9 @@ function FoodPlace(props:FoodPlaceProps){
                 <article className="generalInfo">
                     <div>
                         <h1>{props.name}</h1>
-                        <p>{props.typeOfPlace}</p>
-                        <p>{props.workHours}</p>
-                        <p>{props.address}</p>
+                        <p className="tp-rest">{props.typeOfPlace}</p>
+                        <p className='open-rest'>{props.workHours}</p>
+                        <p className='address-rest'>{props.address}</p>
                     </div>
                     <span className="ratingStar"><i className="fa-solid fa-star"/> {props.rating}</span>
                 </article>

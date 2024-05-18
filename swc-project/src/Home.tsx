@@ -79,7 +79,7 @@ function Home(){
                         />
                     </li>
                     <li>
-                        <Link to={`Result?dist=${filterDistrict}&tp=${filterType}`}>
+                        <Link to={`/Result?dist=${filterDistrict}&tp=${filterType}`}>
                             <button className="search-btn" onClick={()=> searchPlaces()}>
                                 <i className="fa-solid fa-magnifying-glass"></i>
                             </button>

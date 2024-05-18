@@ -1,7 +1,16 @@
 import './foodcard.css'
 import HeartBtn from '../HeartBtn';
 
-export default function FoodCard() {
+interface FoodCardProps {
+    id: string;
+    name: string;
+    portion: string;
+    calories: string;
+    price: string;
+    rating: number;
+}
+
+export default function FoodCard(props:FoodCardProps) {
     return (
         <article className="food">
             <div className="img-food">
@@ -12,21 +21,21 @@ export default function FoodCard() {
                 />
                 <div className="rate-food">
                     <i className="fa-solid fa-star"></i>
-                    <span>4.3</span>
+                    <span>{props.rating}</span>
                 </div>
             </div>
             <div className="text-wrapper">
                 <div className="info-food-ttl"> 
-                    <h3>Tony Wong hjf asdf</h3>
+                    <h3>{props.name}</h3>
                     <HeartBtn 
                             type="food"
-                            item_id="1234"
+                            item_id={props.id}
                         />
                 </div>
                 
-                <div className="info-food sz-food">2 хүн</div>
-                <div className="info-food cal-food">1,483</div>
-                <div className="info-food prc-food" id="price">6,000₮</div>
+                <div className="info-food sz-food">{props.portion}</div>
+                <div className="info-food cal-food">{props.calories}</div>
+                <div className="info-food prc-food" id="price">{props.price}₮</div>
             </div>
         </article>
     );

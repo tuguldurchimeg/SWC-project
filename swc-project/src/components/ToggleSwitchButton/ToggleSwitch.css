@@ -36,13 +36,13 @@
     box-sizing: border-box;
   }
   .inner:before {
-    content: "Газар";
+    content: "Хоол";
     padding-left: 10px;
     background-image: var(--color-gradient-1);
     color: var(--color-background);
   }
   .inner:after {
-    content: "Хоол";
+    content: "Газар";
     padding-right: 10px;
     background-image: var(--color-gradient-1);
     color: var(--color-background);

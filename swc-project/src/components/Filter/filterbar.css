@@ -2,7 +2,7 @@
     height: 2rem;
     width: 60em;
     background: var(--color-light-grey-background);
-    /* justify-content: center; */
+    cursor: pointer;
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -20,22 +20,7 @@
       margin-right: 0.5rem;
     }
   }
-  .dialog {
-    max-width: 30rem;
-    height: auto;
-    padding: 2rem;
-    border: 0;
-    border-radius: 0.5rem;
-    box-shadow: var(--large-shadow);
-    position: relative;
-  }
-
-  .dialog::backdrop {
-    background: hsl(0 0% 0% / 50%);
-  }
-  .dialog-close-btn {
-    font-size: .75em;
+  .card-fltr{
     position: absolute;
-    top: .25em;
-    right: .25em;
+    top: 11rem;
   }

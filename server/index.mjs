@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
 import pool from "./db.mjs";
+import jwt from "jsonwebtoken";
+import axios from "axios";
 const app = express();
 
 //middleware
@@ -65,11 +67,40 @@ app.get("/places/:id", async (req, res) => {
     console.error(err.message);
   }
 });
+
+// LOGIN auth
+app.post("/login", async (req, res) => {
+  const { username, password } = req.body;
+  const secretKey = "secret-key-black";
+  // Fetch user data from the API
+  const response = await axios.get(`http://localhost:5000/users`);
+  const user = response.data;
+  // Check if the entered username and password match any user in the database
+  if (!user)
+    return res
+      .status(400)
+      .json({ message: "Email or password does not match" });
+  if (!user || user.password !== password) {
+    return res
+      .status(400)
+      .json({ message: "Email or password does not match" });
+  }
+
+  const jwtToken = jwt.sign(
+    {
+      id: user.user_id,
+      username: user.username,
+    },
+    secretKey,
+    { expiresIn: "2m" }
+  );
+  res.json({ user: user, token: jwtToken });
+});
 app.get("/users", (req, res) => {
-  pool.query("SELECT username,password FROM users", (err, result) => {
+  pool.query("SELECT user_id, username,password FROM users", (err, result) => {
     if (!err) {
       if (result.rows.length > 0) {
-        res.send(result.rows);
+        res.send(result.rows[0]);
       } else {
         res.status(404).send("User not found");
       }
@@ -179,6 +210,19 @@ app.post("/saveditems", async (req, res) => {
       [user_id, food_id, place_id]
     );
     res.json(newPlace.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+// get saved items
+app.get("/saveditems/:user_id", async (req, res) => {
+  try {
+    const { user_id } = req.params;
+    const item = await pool.query(
+      "SELECT * FROM saveditems WHERE user_id = $1",
+      [user_id]
+    );
+    res.json(item.rows);
   } catch (err) {
     console.error(err.message);
   }

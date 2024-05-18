@@ -5,3 +5,27 @@
     gap: 2em;
     width: 85%;
 }
+
+/* --------- MEDIA ----------  */
+@media (max-width: 1300px){
+    .items{
+        font-size: 0.95rem;
+		margin: 5em;
+    }
+}
+
+@media (max-width: 900px){
+    .items{
+        font-size: 0.8rem;
+		margin: 3em;
+		gap: 2em;
+    }
+}
+
+/* -------- MOBILE --------- */
+@media (max-width: 600px){
+    .items{
+		margin: 2em;
+		gap: 1em;
+    }
+}

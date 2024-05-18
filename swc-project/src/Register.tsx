@@ -61,7 +61,7 @@ const  Register :React.FC= () =>{
                 });
                 if (postResponse.status === 201) {
                   setMessage('User created successfully');
-                  navigate('/Login');
+                  navigate('/');
                 } else {
                   setMessage('Failed to create user');
                 }

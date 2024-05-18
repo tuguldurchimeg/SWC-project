@@ -46,11 +46,10 @@ export default function Result(){
         <>
             <Header/>
             <main className="rslt-main-container">
-                <FilterCard />
-                <FilterBar />
+                {(window.innerWidth < 1300) ? <FilterBar />: <FilterCard/>}
                 <section className="rest-cards">
                     <h2 className="ttl-result">{filterDistrict} Дүүрэг Дэх {filterType} Хоолны Газрууд</h2>
-                    <span className="total-result">Хайлтын илэрц - 13</span>
+                    <span className="total-result">Хайлтын илэрц - {filteredResults.length}</span>
                     <div>
                         {filteredResults.map((item, index) => (
                             <RestCard 
