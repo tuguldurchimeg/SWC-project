@@ -70,7 +70,7 @@ export default function Result(){
             setFilteredResults(response.data);
         });        
     }
-    useEffect(() => {
+    useEffect(() => {   
         fetchData();
     }, []);
 

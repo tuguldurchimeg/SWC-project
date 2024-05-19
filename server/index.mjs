@@ -288,10 +288,10 @@ app.get("/foods/:place_id", async (req, res) => {
   }
 });
 // GET Foods by food_id
-app.get("/foods/:food_id", async (req, res) => {
+app.get("/foods/food/:food_id", async (req, res) => {
   try {
     const { food_id } = req.params;
-    const item = await pool.query("SELECT * FROM foods WHERE food_id = $1", [
+    const item = await pool.query("SELECT * FROM foods WHERE id = $1", [
       food_id,
     ]);
     res.json(item.rows);

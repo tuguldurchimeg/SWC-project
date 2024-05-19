@@ -57,7 +57,7 @@ export default function Saved(){
         const fetchFoodsData = async () => {
             try {
                 const promises = filteredFoods.map(async food => {
-                    const response = await axios.get(`http://localhost:5000/foods/${food.food_id}`);
+                    const response = await axios.get(`http://localhost:5000/foods/food/${food.food_id}`);
                     return response.data;
                 });
                 const resolvedData = await Promise.all(promises);

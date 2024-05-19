@@ -26,6 +26,7 @@ export default function Menu() {
             <div className='foods'>
                 {data.map((item, index) => (
                         <FoodCard 
+                        key={index}
                         id= {item.id}
                         name= {item.f_name}
                         portion= {item.portion}
