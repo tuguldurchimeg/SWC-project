@@ -195,7 +195,7 @@ app.get("/users/:user_id", (req, res) => {
   );
 });
 
-// SAVED ITEMS
+// SAVED ITEMS post
 app.post("/saveditems", async (req, res) => {
   try {
     const { user_id, food_id, place_id } = req.body;
@@ -257,6 +257,20 @@ app.get("/comments/:place_id", async (req, res) => {
       [place_id]
     );
     res.json(item.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+// FOODS post
+app.post("/foods", async (req, res) => {
+  try {
+    const { id, place_id, f_name, portion, price, calories, totalRate } =
+      req.body;
+    const newPlace = await pool.query(
+      "INSERT INTO foods (id,place_id, f_name, portion, price, calories, totalRate) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+      [id, place_id, f_name, portion, price, calories, totalRate]
+    );
+    res.json(newPlace.rows[0]);
   } catch (err) {
     console.error(err.message);
   }

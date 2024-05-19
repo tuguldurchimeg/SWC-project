@@ -24,10 +24,10 @@ import axios from "axios"
         totalrate: number;
     }
     const [data, setData] = useState<PlaceData[]>([]);
-    
     const fetchData = async () => {
-        axios.get(`http://localhost:5000/places/${params.p_id}`).then((response) => {
-            setData(response.data);
+        axios.get(`http://localhost:5000/places/${params.p_id}`)
+             .then((response) => {
+              setData(response.data);
         });        
     }
 

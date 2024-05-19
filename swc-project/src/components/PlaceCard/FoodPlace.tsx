@@ -22,7 +22,7 @@ function FoodPlace(props:FoodPlaceProps){
                         item_id={props.id}
                     />
                 </div>
-                <img src="src/assets/burgerking.png" alt="Burger King"/>
+                <img src="https://source.unsplash.com/random/?restaurant&${props.id}" alt="restaurant img"/>
                 <article className="generalInfo">
                     <div>
                         <h1>{props.name}</h1>
