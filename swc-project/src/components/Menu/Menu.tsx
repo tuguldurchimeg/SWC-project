@@ -32,7 +32,7 @@ export default function Menu() {
                         portion= {item.portion}
                         calories= {item.calories}
                         price= {item.price}
-                        rating= {item.totalRate}
+                        rating= {item.totalrate}
                     />
                     ))}
             </div>

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { useAuth } from './AuthProvider';
 export default function Header() {
     const auth = useAuth();
-    console.log(auth.user?.username);
     return (
         <header>
               <nav className="navigationBar">

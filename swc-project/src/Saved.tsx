@@ -81,19 +81,19 @@ export default function Saved(){
             <Header/>
             <main className="saved-container">
                     <ToggleSwitch onChange={handleToggleChange}/>
-                    {state != "places" ? <section className='saved-foods items'>
-                        {foodsData.map((item, index) => (
-                                <FoodCard 
-                                    key={index}
-                                    id={item.id}
-                                    name={item.f_name}
-                                    portion={item.portion}
-                                    calories={item.calories}
-                                    price={item.price}
-                                    rating={item.totalRate}
-                                />
+                    {state != "places" ? 
+                    <section className='saved-foods items'>
+                        {foodsData.map((item, ind) => (
+                            <FoodCard 
+                            key={ind}
+                            id= {item.id}
+                            name= {item.f_name}
+                            portion= {item.portion}
+                            calories= {item.calories}
+                            price= {item.price}
+                            rating= {item.totalrate}
+                        />
                         ))}
-
                     </section> 
                     : <section className='saved-places items'>
                         {placesData.map((item, index) => (
